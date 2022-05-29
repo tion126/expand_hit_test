@@ -11,29 +11,41 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+A flutter package for expand hit test area. Several default widgets are provided and can be easily customized
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+Default widget by extends InkWell
 ```dart
-const like = 'sample';
+    ExpandInkWell(
+        expandArea:const EdgeInsets.all(30),
+        onTap: () {
+            debugPrint("expand inkwell tap");
+        },
+        child: Container(color: Colors.red, height: 100, width: 100))
 ```
 
-## Additional information
+Default widget by extends GestureDetector
+```dart
+    ExpandGestureDetector(
+        expandArea:const EdgeInsets.all(30),
+        onTap: () {
+            debugPrint("expand GestureDetector tap");
+        },
+        child: Container(color: Colors.red, height: 100, width: 100))
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Custom 
+```dart
+    ExpandHitTestWidget(
+        expandArea:const EdgeInsets.all(30),
+        child: CupertinoButton(padding: EdgeInsets.zero,child: Container(color: Colors.red, height: 100, width: 100), 
+        onPressed: () {
+            debugPrint("expand CupertinoButton tap");
+        }))
+```
+
+Need to go beyond the parent 
+```dart
+    ExpandHitTestScope(child: xxxxx)
+```
